@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include"xmlreader.h"
+#include"xmlreplacer.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +27,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    XMLReader * xreader;
+    XMLReplacer *xrepl = nullptr;
 };
 
 

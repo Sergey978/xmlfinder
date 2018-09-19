@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets xml
 
 TARGET = XMLFinder
 TEMPLATE = app
@@ -24,10 +24,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    xmlreader.cpp \
+    xmlreplacer.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    xmlreader.h \
+    xmlreplacer.h
 
 FORMS += \
         mainwindow.ui
