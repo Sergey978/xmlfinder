@@ -1,10 +1,10 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-09-16T13:49:45
+# Project created by QtCreator 2018-09-17T16:48:07
 #
 #-------------------------------------------------
 
-QT       += core gui widgets
+QT       += core gui widgets xml
 
 TARGET = XMLFinder
 TEMPLATE = app
@@ -24,13 +24,17 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        xmlfinder.cpp
+        mainwindow.cpp \
+    xmlreader.cpp \
+    xmlreplacer.cpp
 
 HEADERS += \
-        xmlfinder.h
+        mainwindow.h \
+    xmlreader.h \
+    xmlreplacer.h
 
 FORMS += \
-        xmlfinder.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
