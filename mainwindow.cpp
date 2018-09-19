@@ -36,8 +36,8 @@ void MainWindow::on_replaceButton_clicked()
     xrepl->setTagList(ui->TagEdit->text());
     xrepl->setPropertyRepl(ui->PropertyEdit->text());
     xrepl->setReplaceList(ui->listForReplace->toPlainText());
-    xrepl->replace();
-    qDebug() << "reere";
+
+    ui->logBrowser->append( xrepl->replace());
 }
 
 // open file

@@ -12,7 +12,7 @@ public:
     void setTagList(const QString &strList);
     void setPropertyRepl(const QString &str);
     void setReplaceList(const QString &str);
-    void replace();
+    QString replace();
 private:
     QDomDocument  doc;
     QStringList  tagList;
