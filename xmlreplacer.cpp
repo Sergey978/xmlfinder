@@ -22,30 +22,11 @@ void XMLReplacer::setReplaceList(const QString &str)
 {
     QString tmp = str;
     tmp.remove("\n");
-    replaceList =  tmp.split(",");
-    qDebug() << replaceList;
+    replaceList =  tmp.split(",");   
 }
 
 QString XMLReplacer::replace()
 {
-//    itemList = doc.elementsByTagName(tagList[0]);
-//    for (int i = 0; i <itemList.size(); i++)
-//    {
-//        QDomNode itemNode = itemList.item(i);
-//        QDomElement secondTag = itemNode.firstChildElement(tagList[1]);
-//        if (secondTag.isNull() )
-//            continue;
-//        else
-//        {
-//            if (  replaceList.contains(secondTag.text()))
-//            {
-//                QDomElement replaceTag =  itemNode.firstChildElement("name");
-//                QString text =replaceTag.text();
-//                replaceTag.setNodeValue(propertyRepl + text);
-//            }
-//        }
-//    }
-
     QDomElement	rootElement = doc.documentElement();
     for (auto code : replaceList)
     {
@@ -60,11 +41,8 @@ QString XMLReplacer::replace()
           {
               QDomElement replaceTag =  itemNode.firstChildElement("name");
               QString text =replaceTag.text();
-              qDebug() << "text" << text;
-
-               rootElement.elementsByTagName(tagList[0]).at(i).firstChildElement("name")
-                       .firstChild().setNodeValue(propertyRepl + text);
-              qDebug() <<  rootElement.elementsByTagName(tagList[0]).at(i).firstChildElement("name").text();
+              rootElement.elementsByTagName(tagList[0]).at(i).firstChildElement("name")
+                       .firstChild().setNodeValue(propertyRepl + text);            
           }
 
       }
@@ -75,7 +53,7 @@ QString XMLReplacer::replace()
     QFile file( "out.xml" );
     if( !file.open( QIODevice::WriteOnly | QIODevice::Text ) )
     {
-    return QString("Failed to open file for writing." );
+    return QString("Не получилось открыть файл для записи." );
 
     }
     QTextStream stream( &file );

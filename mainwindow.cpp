@@ -27,17 +27,19 @@ void MainWindow::on_actionExit_triggered()
 
 void MainWindow::on_replaceButton_clicked()
 {
+
     //there will be a cod  which we will  act when button pressed
     if(xrepl == nullptr)
     {
-         ui->logBrowser->append("Файл не был открыт , сначала надо открыть файл! ");
+         ui->logBrowser->append("Файл не был открыт,\n сначала надо открыть XML файл! ");
          return;
     }
+
     xrepl->setTagList(ui->TagEdit->text());
     xrepl->setPropertyRepl(ui->PropertyEdit->text());
-    xrepl->setReplaceList(ui->listForReplace->toPlainText());
+    xrepl->setReplaceList(ui->listForReplace->toPlainText());   
 
-    ui->logBrowser->append( xrepl->replace());
+    ui->logBrowser->append( xrepl->replace() );
 }
 
 // open file
@@ -55,14 +57,16 @@ void MainWindow::on_Open_triggered()
         QFile file(fileName);
 
         if (!file.open(QIODevice::ReadOnly)) {
-            QMessageBox::information(this, tr("Unable to open file"),
+            QMessageBox::information(this, tr("Не получилось открыть файл"),
                                      file.errorString());
             return;
         }
 
+
     }
+
     xreader = new XMLReader(fileName);
     xrepl = new XMLReplacer(xreader->getXmlDoument());
 
-    ui->logBrowser->append("file was opened");
+    ui->logBrowser->append("Файл успешно загружен.");
 }
