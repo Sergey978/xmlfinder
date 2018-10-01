@@ -28,14 +28,13 @@ void XMLReplacer::setReplaceList(const QString &str)
 QString XMLReplacer::replace()
 {
     QDomElement	rootElement = doc.documentElement();
-    for (auto code : replaceList)
-    {
+
       itemList = rootElement.elementsByTagName(tagList[0]);
       for (int i =0; i < itemList.size(); i++ )
       {
           QDomNode itemNode = rootElement.elementsByTagName(tagList[0]).at(i);
           QDomElement secondTag = itemNode.firstChildElement(tagList[1]);
-          if (secondTag.isNull() || secondTag.text() != code)
+          if (secondTag.isNull() ||  !replaceList.contains(secondTag.text()))
               continue;
           else
           {
@@ -46,7 +45,6 @@ QString XMLReplacer::replace()
           }
 
       }
-    }
 
 
 
